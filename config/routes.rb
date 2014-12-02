@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
-
   root 'projects#index'
 
   resources :projects, only: [:index, :new, :create]
