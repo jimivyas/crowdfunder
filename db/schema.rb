@@ -13,16 +13,17 @@
 
 ActiveRecord::Schema.define(version: 20141202202937) do
 
+  create_table "donates", force: true do |t|
+    t.integer  "amount"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "projects", force: true do |t|
     t.integer  "funding_goal"
     t.datetime "end_date"
     t.datetime "start_date"
     t.string   "description"
-
-ActiveRecord::Schema.define(version: 20141202185931) do
-
-  create_table "donates", force: true do |t|
-    t.integer  "amount"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
