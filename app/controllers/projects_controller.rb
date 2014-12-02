@@ -5,10 +5,12 @@ class ProjectsController < ApplicationController
   end
 
   def new
+  	require_login
   	@project = Project.new
   end
 
   def create
+  	require_login
   	@project = Product.new(project_params)
   	if @project.save
   		redirect_to projects_url
