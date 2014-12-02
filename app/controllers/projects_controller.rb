@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-	before_action :require_login, except :index
+	# before_action :require_login, except :index
 
   def index
   	@projects = Project.all
