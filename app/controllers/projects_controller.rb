@@ -8,6 +8,10 @@ class ProjectsController < ApplicationController
   def destroy
   end
 
-  def editindex
+  def edit
   end
+
+  def index
+  end
+  
 end
