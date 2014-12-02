@@ -1,10 +1,15 @@
 class ProjectsController < ApplicationController
+
+  def index
+  	@projects = Project.all
+  end
+
   def new
-  	@product = Product.new
+  	@project = Project.new
   end
 
   def create
-  	@project = Product.new(product_params)
+  	@project = Product.new(project_params)
   	if @project.save
   		redirect_to projects_url
   	end
@@ -23,10 +28,6 @@ class ProjectsController < ApplicationController
 
   def edit
   	@projcet = Project.find(params[:id])
-  end
-
-  def index
-  	@project = Project.all
   end
 
   private
