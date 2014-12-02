@@ -1,11 +1,9 @@
 Rails.application.routes.draw do
-  get 'projects/new'
 
-  get 'projects/create'
+  root 'project#index'
 
-  get 'projects/destroy'
+  resources :projects
 
-  get 'projects/editindex'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -62,3 +60,4 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 end
+
