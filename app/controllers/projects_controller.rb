@@ -1,16 +1,15 @@
 class ProjectsController < ApplicationController
+	before_action :require_login, except :index
 
   def index
   	@projects = Project.all
   end
 
   def new
-  	require_login
   	@project = Project.new
   end
 
   def create
-  	require_login
   	@project = Product.new(project_params)
   	if @project.save
   		redirect_to projects_url
