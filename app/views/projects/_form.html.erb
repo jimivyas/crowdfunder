@@ -11,6 +11,10 @@
 	</div>
 
 	<div class="field">
-		<%= f.label :name %><br />
-		<%= f.text_field :name %>
+		<%= f.label :amount %><br />
+		<%= f.number_field :amount %>
 	</div>
+	<div class="action">
+		<%= f.sumbit %>
+	</div>
+<% end %>
