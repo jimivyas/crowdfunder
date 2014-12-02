@@ -11,6 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20141202185114) do
 
   create_table "projects", force: true do |t|
@@ -18,6 +19,11 @@ ActiveRecord::Schema.define(version: 20141202185114) do
     t.datetime "end_date"
     t.datetime "start_date"
     t.string   "description"
+
+ActiveRecord::Schema.define(version: 20141202185931) do
+
+  create_table "donates", force: true do |t|
+    t.integer  "amount"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
