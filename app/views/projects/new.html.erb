@@ -1,4 +1,9 @@
 
-<h1>Create a new project!!</h1>
-<%= render 'creation_form' %>
-<%= link_to 'Back', projects_path %>
+
+<% if logged_in? %>
+	<h1>Create a new project!!</h1>
+	<%= render 'creation_form' %>
+	<%= link_to 'Back', projects_path %>
+<% else %>
+	<h1>Please log in or create an account to be able to create a project.</h1>
+<% end %>
