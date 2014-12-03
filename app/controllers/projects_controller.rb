@@ -28,12 +28,12 @@ class ProjectsController < ApplicationController
 
 
   def edit
-  	@projcet = Project.find(params[:id])
+  	@project = Project.find(params[:id])
   end
 
   private
   def project_params
-  	params.require(:project).permit(:name, :funding_goal, :end_date, :start_date, :description)
+  	params.require(:project).permit(:name, :funding_goal, :end_date, :start_date, :description, rewards_attributes: [:amount, :description])
   end
 
 

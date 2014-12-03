@@ -3,10 +3,10 @@
 <div id="project_details">
 	<% @projects.each do |individual_project| %>
 		<div id="project_name">
-		<%= link_to individual_project.name, project_path(individual_project) %>
+		<%= link_to individual_project.name, projects_path(individual_project) %>
 		</div>
 		<div id="project_description">
-			<%= truncate(individual_project.description, length: 60 ) {link_to "see more", project_path(individual_project)} %>
+			<%= truncate(individual_project.description, length: 60 ) {link_to "see more", project_paths(individual_project)} %>
 		</div>
 		<div id="project_funding">
 			Funds raised: $0 of $<%= individual_project.funding_goal %>
