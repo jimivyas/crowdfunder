@@ -10,14 +10,14 @@ class ProjectsController < ApplicationController
   end
 
   def create
-  	@project = Product.new(project_params)
+  	@project = Project.new(project_params)
   	if @project.save
   		redirect_to projects_url
   	end
    end
 
   def destroy
-  	@project = Projcet.find(params[:id])
+  	@project = Project.find(params[:id])
   	@project.destroy
   	redirect_to project_path
   end
