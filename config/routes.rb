@@ -3,12 +3,7 @@ Rails.application.routes.draw do
 
   resources :projects, only: [:index, :new, :create, :show]
 
-  get 'donate/show'
-
-  get 'donate/create'
-
-  get 'donate/destroy'
-
+  resources :donate
   resources :users
   resources :user_sessions, only: [:new, :create, :destroy]
   resources :rewards
