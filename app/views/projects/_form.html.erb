@@ -14,15 +14,17 @@
 		<%= f.label :funding_goal %><br />
 		<%= f.number_field :funding_goal %>
 	</div>
+
+	Start Date
 	<div class="field">
-		<%= f.label :start_date %><br />
-		<%= f.datetime_field :start_date %>
+		<%= f.datetime_select :end_date, ampm: true, default: 1.days.from_now, discard_minute: true, class: "form_fields" %><br>
 	</div>
-	<div class="field">
-		<%= f.label :end_date %><br />
-		<%= f.datetime_field :end_date %>
+
+	<div>
+		<%= f.hidden_field :start_date, :value => Time.now %>
 	</div>
 	<div class="action">
 		<%= f.submit %>
 	</div>
+
 <% end %>
