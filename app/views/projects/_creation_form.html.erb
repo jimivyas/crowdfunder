@@ -16,11 +16,14 @@
 	</div>
 	Project end date
 	<div class="field">
-		<%= f.datetime_select :end_date, ampm: true, default: 1.months.from_now, discard_minute: true, discard_hour: true, class: "form_fields" %><br>
+		<%= f.datetime_select :end_date, ampm: true, default: 1.months.from_now, discard_hour: true, class: "form_fields" %><br>
 	</div>
 
 	<div>
 		<%= f.hidden_field :start_date, :value => Time.now %>
+	</div>
+	<div>
+		<%= f.hidden_field :owner, :value => @user.email %>
 	</div>
 	<div class="action">
 		<%= f.submit %>
