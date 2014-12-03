@@ -24,9 +24,9 @@ ActiveRecord::Schema.define(version: 20141203201633) do
     t.datetime "end_date"
     t.datetime "start_date"
     t.string   "description"
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "name"
     t.string   "owner"
   end
 
@@ -39,6 +39,8 @@ ActiveRecord::Schema.define(version: 20141203201633) do
   end
 
   create_table "users", force: true do |t|
+    t.string   "first_name",                      null: false
+    t.string   "last_name",                       null: false
     t.string   "email",                           null: false
     t.string   "crypted_password",                null: false
     t.string   "salt",                            null: false
