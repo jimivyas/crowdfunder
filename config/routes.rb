@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'projects#index'
 
-  resources :projects, only: [:index, :new, :create]
+  resources :projects, only: [:index, :new, :create, :show]
 
   get 'donate/show'
 
