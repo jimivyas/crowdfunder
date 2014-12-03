@@ -5,7 +5,7 @@
 	<%= render 'creation_form' %>
 	<%= link_to 'Back', projects_path %>
 <% else %>
-	<h1>
+	<p>
 	Please <%= link_to "log in", "/login" %>  or <%= link_to "create an account", "/users/new" %> to be able to create a project.
-	</h1>
+	</p>
 <% end %>
