@@ -10,7 +10,8 @@
 </div>
 
 <% if logged_in? %>
-	<% if current_user.email == @project.owner %>
+	<% if current_user == @project.owner %>
 		Your project is doing well! haha, just kidding
-	<% end %>
-	<% end %>
+	<% else %>
+
+<% end %>

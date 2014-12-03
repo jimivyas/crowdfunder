@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141203203840) do
+ActiveRecord::Schema.define(version: 20141203201633) do
 
   create_table "donates", force: true do |t|
     t.integer  "amount"
@@ -24,10 +24,10 @@ ActiveRecord::Schema.define(version: 20141203203840) do
     t.datetime "end_date"
     t.datetime "start_date"
     t.string   "description"
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "name"
-    t.string   "owner"
+    t.integer  "owner_id"
   end
 
   create_table "rewards", force: true do |t|
@@ -39,6 +39,8 @@ ActiveRecord::Schema.define(version: 20141203203840) do
   end
 
   create_table "users", force: true do |t|
+    t.string   "first_name",                      null: false
+    t.string   "last_name",                       null: false
     t.string   "email",                           null: false
     t.string   "crypted_password",                null: false
     t.string   "salt",                            null: false
@@ -49,8 +51,6 @@ ActiveRecord::Schema.define(version: 20141203203840) do
     t.string   "reset_password_token"
     t.datetime "reset_password_token_expires_at"
     t.datetime "reset_password_email_sent_at"
-    t.string   "first_name"
-    t.string   "last_name"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
