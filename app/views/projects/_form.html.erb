@@ -10,6 +10,22 @@
 		<%= f.text_field :description %>
 	</div>
 
+	  <p>Rewards</p>
+	 <div>
+	    <%= f.label :image %>
+	    <%= f.file_field :image %>
+	 <div>
+
+	  <%= f.fields_for :rewards do |r| %>
+	    <%= render 'reward_field', :f => r %>
+	  <% end %>
+	 </div>
+
+	  <div>
+    		<%= link_to_add_association 'add reward', f, :rewards %>
+  	</div>
+  		<%= f.submit %>
+  	</br>
 	<div class="field">
 		<%= f.label :funding_goal %><br />
 		$<%= f.number_field :funding_goal %>
