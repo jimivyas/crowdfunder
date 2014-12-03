@@ -1,2 +1,16 @@
-<h1>Projects#index</h1>
-<p>Find me in app/views/projects/index.html.erb</p>
+<h3>Projects</h3>
+
+<div id="project_details">
+	<% @projects.each do |individual_project| %>
+		<div id="project_name">
+		<%= link_to individual_project.name, project_path(individual_project) %>
+		</div>
+		<div id="project_description">
+			<%= truncate(individual_project.description, length: 60 ) {link_to "see more", project_path(individual_project)} %>
+		</div>
+		<div id="project_funding">
+			Funds raised: $0 of $<%= individual_project.funding_goal %>
+		</div>
+
+
+	<% end %>
