@@ -14,6 +14,8 @@
 	Funds raised: $0 of $<%= @project.funding_goal %>
 </div>
 
+<!-- make this page prettier later -->
+
 <% if logged_in? %>
 	<% if current_user == @project.owner %>
 		<div>
@@ -22,12 +24,12 @@
 		<div id="project_timing">
 		<% ending = @project.end_date %>
 		<% current = DateTime.now %>
-		Your project is due to end on <%=ending%>! That's only <%= current - ending.day %> days from now!
+		<!-- There must be a better way to display dates in this format. Oh well! -->
+		Your project is due to end on <%=ending.month%>/<%=ending.day%>/<%=ending.year%>! That's only <%= current - ending.day %> days from now!
 		</div>
 
 
 	<% else %>
-
 		<form name="donate">
 			<select name="mydropdown">
 			<option value="5">$5</option>
