@@ -20,7 +20,6 @@ p1 = Project.create(
 	start_date: 4.days.ago,
 	end_date: 3.months.from_now,
 	description: "this is a project"
-
 )
 
 p1.rewards.create(

@@ -16,6 +16,13 @@ class ProjectsController < ApplicationController
   	end
    end
 
+  def update
+    @project = Project.find(params[:id])
+    if @project.update_attributes(project_params)
+      redirect_to project_url(@project)
+    end
+   end
+
   def destroy
   	@project = Project.find(params[:id])
   	@project.destroy
@@ -24,16 +31,25 @@ class ProjectsController < ApplicationController
 
   def show
   	@project = Project.find(params[:id])
+    @project.donates.build
   end
 
 
   def edit
-  	@projcet = Project.find(params[:id])
+  	@project = Project.find(params[:id])
   end
 
   private
   def project_params
-  	params.require(:project).permit(:name, :funding_goal, :end_date, :start_date, :description)
+  	params.require(:project)
+          .permit(:name,
+            :funding_goal,
+            :end_date,
+            :start_date,
+            :description,
+            :amount_funded,
+            donates_attributes: [:id, :amount]
+            )
   end
 
 

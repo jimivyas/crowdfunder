@@ -13,21 +13,28 @@
 <% if logged_in? %>
 	<% if current_user == @project.owner %>
 		Your project is doing well! haha, just kidding
-		<div id="project_funding">
-			Funds raised: $0 of $<%= @project.funding_goal %>
-		</div>
-		<form name="donate">
-			<select name="mydropdown">
-			<option value="5">$5</option>
-			<option value="10">$10</option>
-			<option value="20">$20</option>
-			</select>
-			<br><input type="submit" value="Donate to this project" onclick=""><br>
-		</form>
 	<% else %>
 	<% end %>
 <% end %>
+
+<div id="project_funding">
+	Funds raised: $<%= @project.amount_funded %> of $<%= @project.funding_goal %>
 </div>
 
+
+<%= form_for Donate.new do |f| %>
+	<%= f.hidden_field :project_id, value: @project.id %>
+
+	<%= f.select :amount do %>
+		<option value="5">$5</option>
+		<option value="10">$10</option>
+		<option value="20">$20</option>
+	<% end %>
+
+	<%= f.submit "Donate!" %>
+
+<% end %>
+
+
 <%= link_to 'Back', projects_path %> |
-<%= link_to 'Start a Project', "projects/new" %>
+<%= link_to 'Start a Project', "/projects/new" %>

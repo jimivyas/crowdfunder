@@ -38,4 +38,5 @@ gem 'sorcery'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-
+gem 'quiet_assets'
+gem 'pry-rails'
