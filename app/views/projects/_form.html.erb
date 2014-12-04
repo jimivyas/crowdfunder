@@ -1,4 +1,4 @@
-<%= form_for(@project,html: {multipart: true}) do |f| %>
+<%= form_for(@project) do |f| %>
 
 	<div class="field">
 		<%= f.label :name %><br />
@@ -9,17 +9,6 @@
 		<%= f.label :description %><br />
 		<%= f.text_field :description %>
 	</div>
-
-	  <p>Rewards</p>
-
-	 <div>
-	  <%= f.fields_for :rewards do |r| %>
-	    <%= render 'reward_field', :f => r %>
-	  <% end %>
-	 </div>
-
-  		<%= f.submit %>
-
   	</br>
 	<div class="field">
 		<%= f.label :funding_goal %><br />
