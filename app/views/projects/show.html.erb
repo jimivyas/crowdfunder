@@ -11,6 +11,7 @@
 
 <div id="project_funding">
 	Funds raised: $<%= @project.amount_funded %> of $<%= @project.funding_goal %>
+	<br>This project is <%= ((@project.amount_funded.to_f / @project.funding_goal) * 100).round %>% funded!<br>
 </div>
 
 
@@ -33,6 +34,8 @@
 				<option value="5">$5</option>
 				<option value="10">$10</option>
 				<option value="20">$20</option>
+				<option value="100">$100</option>
+				<option value="500">$500</option>
 			<% end %>
 
 			<%= f.submit "Donate!" %>
