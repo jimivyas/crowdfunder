@@ -21,8 +21,8 @@
 		</div>
 		<div id="project_timing">
 		<% ending = @project.end_date %>
-		<% current = DateTime.now.day %>
-		Your project is due to end on <%=ending.day %>! That's only <%= ending - current %> days from now!
+		<% current = DateTime.now %>
+		Your project is due to end on <%=ending%>! That's only <%= current - ending.day %> days from now!
 		</div>
 
 
