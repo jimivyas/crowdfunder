@@ -4,36 +4,51 @@
 <h1> <%= @project.name %></h1>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
-<!-- should we have images? videos? too lazy to look at the assignment. -->
 
 <div id="project_description">
 	<%= @project.description %>
 </div>
 
-<% if logged_in? %>
-	<% if current_user == @project.owner %>
-		Your project is doing well! haha, just kidding
-	<% else %>
-	<% end %>
-<% end %>
-
 <div id="project_funding">
-	Funds raised: $<%= @project.amount_funded %> of $<%= @project.funding_goal %>
+	Funds raised: $0 of $<%= @project.funding_goal %>
 </div>
 
+<!-- make this page prettier later, using partials? -->
 
-<%= form_for Donate.new do |f| %>
-	<%= f.hidden_field :project_id, value: @project.id %>
+<% if logged_in? %>
+	<% if current_user == @project.owner %>
+		<div id="project_funding">
+			Funds raised: $<%= @project.amount_funded %> of $<%= @project.funding_goal %>
+		</div>
+		<div id="project_timing">
+		<% ending = @project.end_date %>
+		<% current = DateTime.now %>
+		<!-- There must be a better way to display dates in this format. Oh well! -->
+		Your project is due to end on <%=ending.month%>/<%=ending.day%>/<%=ending.year%>! That's only <%= ending - current.day%> days from now!
+		</div>
 
-	<%= f.select :amount do %>
-		<option value="5">$5</option>
-		<option value="10">$10</option>
-		<option value="20">$20</option>
+
+	<% else %>
+	<%= form_for Donate.new do |f| %>
+		<%= f.hidden_field :project_id, value: @project.id %>
+
+		<%= f.select :amount do %>
+			<option value="5">$5</option>
+			<option value="10">$10</option>
+			<option value="20">$20</option>
+		<% end %>
+
+		<%= f.submit "Donate!" %>
+
 	<% end %>
 
-	<%= f.submit "Donate!" %>
+	<% end %>
 
 <% end %>
+
+
+
+
 
 
 <%= link_to 'Back', projects_path %> |
