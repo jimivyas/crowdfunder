@@ -2,6 +2,7 @@
 
 
 <h1> <%= @project.name %></h1>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
 <!-- should we have images? videos? too lazy to look at the assignment. -->
 
@@ -9,20 +10,33 @@
 	<%= @project.description %>
 </div>
 
+<div id="project_funding">
+	Funds raised: $0 of $<%= @project.funding_goal %>
+</div>
+
 <% if logged_in? %>
 	<% if current_user == @project.owner %>
 		<div>
 		Your project is doing well! haha, just kidding
 		</div>
-		<div id="project_funding_status">
-		Your project has raised $0 of $<%=@project.funding_goal%>! Congratulations!
-		</div>
-		<div id="project_timing_status">
+		<div id="project_timing">
 		<% ending = @project.end_date %>
 		<% current = DateTime.now.day %>
 		Your project is due to end on <%=ending.day %>! That's only <%= ending - current %> days from now!
+		</div>
+
 
 	<% else %>
+
+		<form name="donate">
+			<select name="mydropdown">
+			<option value="5">$5</option>
+			<option value="10">$10</option>
+			<option value="20">$20</option>
+			</select>
+			<br><input type="submit" value="Donate to this project" onclick=""><br>
+		</form>
+
 	<% end %>
 <% end %>
 </div>

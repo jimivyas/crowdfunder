@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20141203201633) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "owner_id"
+    t.string   "owner_id"
   end
 
   create_table "rewards", force: true do |t|
