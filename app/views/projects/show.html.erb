@@ -2,6 +2,7 @@
 
 
 <h1> <%= @project.name %></h1>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
 <!-- should we have images? videos? too lazy to look at the assignment. -->
 
@@ -12,6 +13,17 @@
 <% if logged_in? %>
 	<% if current_user == @project.owner %>
 		Your project is doing well! haha, just kidding
+		<div id="project_funding">
+			Funds raised: $0 of $<%= @project.funding_goal %>
+		</div>
+		<form name="donate">
+			<select name="mydropdown">
+			<option value="5">$5</option>
+			<option value="10">$10</option>
+			<option value="20">$20</option>
+			</select>
+			<br><input type="submit" value="Donate to this project" onclick=""><br>
+		</form>
 	<% else %>
 	<% end %>
 <% end %>

@@ -1,4 +1,3 @@
-
 # encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
@@ -28,7 +27,7 @@ ActiveRecord::Schema.define(version: 20141203201633) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "owner_id"
+    t.string   "owner_id"
   end
 
   create_table "rewards", force: true do |t|
