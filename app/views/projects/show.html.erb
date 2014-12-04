@@ -4,7 +4,6 @@
 <h1> <%= @project.name %></h1>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
-<!-- should we have images? videos? too lazy to look at the assignment. -->
 
 <div id="project_description">
 	<%= @project.description %>
@@ -14,7 +13,7 @@
 	Funds raised: $0 of $<%= @project.funding_goal %>
 </div>
 
-<!-- make this page prettier later -->
+<!-- make this page prettier later, using partials? -->
 
 <% if logged_in? %>
 	<% if current_user == @project.owner %>
@@ -25,7 +24,7 @@
 		<% ending = @project.end_date %>
 		<% current = DateTime.now %>
 		<!-- There must be a better way to display dates in this format. Oh well! -->
-		Your project is due to end on <%=ending.month%>/<%=ending.day%>/<%=ending.year%>! That's only <%= current - ending.day %> days from now!
+		Your project is due to end on <%=ending.month%>/<%=ending.day%>/<%=ending.year%>! That's only <%= ending - current.day%> days from now!
 		</div>
 
 
