@@ -1,4 +1,4 @@
-<%= form_for(@project) do |f| %>
+<%= form_for(@project)  do |f|  %>
 
 	<div class="field">
 		<%= f.label :name %><br />
@@ -10,6 +10,17 @@
 		<%= f.text_field :description %>
 	</div>
 
+	  <p>Rewards</p>
+	  <div>
+	    <%= f.label :image %>
+	    <%= f.file_field :image %>
+	  <div>
+
+	  <%= f.fields_for :rewards do |r| %>
+	    <%= render 'reward_fields', :f => r %>
+	  <% end %>
+	  </div>
+  	</br>
 	<div class="field">
 		<%= f.label :funding_goal %><br />
 		$<%= f.number_field :funding_goal %>
