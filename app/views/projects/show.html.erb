@@ -18,9 +18,9 @@
 		Your project has raised $0 of $<%=@project.funding_goal%>! Congratulations!
 		</div>
 		<div id="project_timing_status">
-		<% ending = @project.end_date.day %>
+		<% ending = @project.end_date %>
 		<% current = DateTime.now.day %>
-		Your project is due to end on <%=ending %>! That's only <%= ending - current %> days from now
+		Your project is due to end on <%=ending.day %>! That's only <%= ending - current %> days from now!
 
 	<% else %>
 	<% end %>
