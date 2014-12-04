@@ -17,6 +17,7 @@
 <!-- make this page prettier later, using partials? -->
 
 <% if logged_in? %>
+<!-- fix this! -->
 	<% if current_user.id == @project.owner_id %>
 		<div id="project_timing">
 			<% ending = @project.end_date %>
