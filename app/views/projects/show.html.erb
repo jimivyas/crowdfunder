@@ -1,3 +1,6 @@
+
+
+
 <h1> <%= @project.name %></h1>
 
 <!-- should we have images? videos? too lazy to look at the assignment. -->
@@ -5,3 +8,14 @@
 <div id="project_description">
 	<%= @project.description %>
 </div>
+
+<% if logged_in? %>
+	<% if current_user == @project.owner %>
+		Your project is doing well! haha, just kidding
+	<% else %>
+	<% end %>
+<% end %>
+</div>
+
+<%= link_to 'Back', projects_path %> |
+<%= link_to 'Start a Project', "projects/new" %>
