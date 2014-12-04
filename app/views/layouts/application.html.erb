@@ -9,9 +9,10 @@
 <body>
 
   <div id="nav">
+    Welcome to <%= link_to "Crowdfunder", projects_path %>!
   	<% if current_user %>
       You're logged in as <%= current_user.first_name %> <%= current_user.last_name %>.
-  	  <%= link_to "Edit Profile", edit_user_path(current_user.id) %>
+  	  <%= link_to "Edit Profile", edit_user_path(current_user.id) %> |
   	  <%= link_to "Logout", :logout %>
   	<% else %>
   	  <%= link_to "Register", new_user_path %> |

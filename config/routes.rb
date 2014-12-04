@@ -1,13 +1,14 @@
 Rails.application.routes.draw do
   root 'projects#index'
 
-  resources :projects, only: [:index, :new, :create, :show]
+  resources :projects
 
-  resources :donate
+  resources :donates
+
   resources :users
   resources :user_sessions, only: [:new, :create, :destroy]
   resources :rewards
-  
+
   get 'login' => 'user_sessions#new', as: 'login'
   get 'logout' => 'user_sessions#destroy', as: 'logout'
 

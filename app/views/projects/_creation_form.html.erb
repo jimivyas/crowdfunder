@@ -36,6 +36,9 @@
 	<div>
 		<%= f.hidden_field :owner, :value => current_user %>
 	</div>
+	<div>
+		<%= f.hidden_field :amount_funded, :value => 0 %>
+	</div>
 	<div class="action">
 		<%= f.submit %>
 	</div>
