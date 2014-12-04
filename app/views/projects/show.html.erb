@@ -10,40 +10,33 @@
 </div>
 
 <div id="project_funding">
-	Funds raised: $0 of $<%= @project.funding_goal %>
+	Funds raised: $<%= @project.amount_funded %> of $<%= @project.funding_goal %>
 </div>
+
 
 <!-- make this page prettier later, using partials? -->
 
 <% if logged_in? %>
-	<% if current_user == @project.owner %>
-		<div id="project_funding">
-			Funds raised: $<%= @project.amount_funded %> of $<%= @project.funding_goal %>
-		</div>
+	<% if current_user.id == @project.owner_id %>
 		<div id="project_timing">
-		<% ending = @project.end_date %>
-		<% current = DateTime.now %>
-		<!-- There must be a better way to display dates in this format. Oh well! -->
-		Your project is due to end on <%=ending.month%>/<%=ending.day%>/<%=ending.year%>! That's only <%= ending - current.day%> days from now!
+			<% ending = @project.end_date %>
+			<% current = DateTime.now %>
+			<!-- There must be a better way to display dates in this format. Oh well! -->
+			Your project is due to end on <%=ending.month%>/<%=ending.day%>/<%=ending.year%>! That's only <%= ending - current.day%> days from now!
 		</div>
-
-
 	<% else %>
-	<%= form_for Donate.new do |f| %>
-		<%= f.hidden_field :project_id, value: @project.id %>
+		<%= form_for Donate.new do |f| %>
+			<%= f.hidden_field :project_id, value: @project.id %>
 
-		<%= f.select :amount do %>
-			<option value="5">$5</option>
-			<option value="10">$10</option>
-			<option value="20">$20</option>
+			<%= f.select :amount do %>
+				<option value="5">$5</option>
+				<option value="10">$10</option>
+				<option value="20">$20</option>
+			<% end %>
+
+			<%= f.submit "Donate!" %>
 		<% end %>
-
-		<%= f.submit "Donate!" %>
-
 	<% end %>
-
-	<% end %>
-
 <% end %>
 
 

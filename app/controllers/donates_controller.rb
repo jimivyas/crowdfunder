@@ -11,9 +11,12 @@ class DonatesController < ApplicationController
 		@donate.donor = current_user
 		@donate.project_id = params[:donate][:project_id]
 
+		@donate.project.amount_funded = @donate.project.donates.pluck(:amount).sum
+		@donate.project.save
+
 	  	respond_to do |format|
 	  		if @donate.save #can we put .submit or .donate here?
-	  			format.html {redirect_to projects_path, notice: 'Thanks for donating!' }
+	  			format.html {redirect_to project_path(@donate.project), notice: 'Thanks for donating!' }
 	  			format.js {} # will look for create.js.erb - need to make it
 	  		else
 	  			format.html { render 'projects/show', alert: 'your money is unwanted' }
